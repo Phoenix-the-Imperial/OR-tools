@@ -25,10 +25,6 @@ all: clean build copy_bin
 .PHONY: build
 .PHONY: run
 
-# SOURCE_SUFFIX := $(suffix $(SOURCE))
-# SOURCE_PATH := $(subst /,$S,$(SOURCE))
-# SOURCE_NAME := $(basename $(notdir $(SOURCE)))
-
 ifeq ($(SOURCE), )
 
 build run:
@@ -53,11 +49,6 @@ build: $(SOURCE) $(SRC)/CMakeLists.txt clean
  --config $(BUILD_TYPE) \
  -v
 	
-# run: build
-#	cd $(SRC) && \
-# cmake \
-# --build build --config $(BUILD_TYPE) \
-# --target test -v
 run: copy_bin
 	@echo "$(LIGHTCYAN)[Running the executable]$(NOCOLOR)"
 	@echo "$(LIGHTGREEN)[Output of the executable]$(NOCOLOR)"
